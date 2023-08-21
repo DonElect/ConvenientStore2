@@ -26,26 +26,39 @@ public class Store {
         managerImp.hire(cashier2);
         //manager.fire(cashier2);
 
-        Customer customer = new Customer();
+        Customer customer1 = new Customer();
+        Customer customer2 = new Customer();
 
-        cashierImp1.addProduct("Mango", 100, 10);
-        cashierImp1.addProduct("Orange", 50, 20);
-        cashierImp1.addProduct("Banana", 500, 5);
-        cashierImp1.addProduct("WaterMelon", 800, 15);
-        cashierImp1.addProduct("Garri", 200, 5);
+        // Add items to store
+        cashierImp1.addProduct("Mango", 100, 50);
+        cashierImp1.addProduct("Orange", 50, 30);
+        cashierImp1.addProduct("Banana", 500, 35);
+        cashierImp1.addProduct("WaterMelon", 800, 55);
+        cashierImp1.addProduct("Garri", 200, 65);
 
-        customer.addToCart("Mango", 2);
-        customer.addToCart("Orange", 5);
-        customer.addToCart("Banana", 2);
-        customer.addToCart("Garri", 3);
+        // Customer1 Buying items from store
+        customer1.addToCart("Mango", 2);
+        customer1.addToCart("Orange", 5);
+        customer1.addToCart("Banana", 2);
+        customer1.addToCart("Garri", 3);
 
-        customer.removeFromCart("Mango", 1);
-        customer.removeFromCart("Garri", 2);
+        customer1.removeFromCart("Mango", 1);
+        customer1.removeFromCart("Garri", 2);
+
+        // Customer2 buying items
+        customer2.addToCart("Mango", 22);
+        customer2.addToCart("Orange", 15);
+        customer2.addToCart("Banana", 20);
+        customer2.addToCart("Garri", 31);
 
 
-        customer.buy();
+        customer1.buy();
+        customer2.buy();
 
-        cashierImp2.sell();
-        cashierImp2.dispenseReceipt();
+        cashierImp2.sell(customer1);
+        cashierImp2.dispenseReceipt(customer1);
+
+        cashierImp2.sell(customer2);
+        cashierImp2.dispenseReceipt(customer2);
     }
 }

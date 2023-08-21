@@ -1,7 +1,9 @@
 package com.store.services;
 
+import com.store.implementations.Customer;
+
 public interface CashierServices {
-    void sell();
-    boolean dispenseReceipt();
+    void sell(Customer customer);
+    boolean dispenseReceipt(Customer customer);
     boolean addProduct(String item, int price, int quantity);
 }

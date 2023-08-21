@@ -11,7 +11,6 @@ public class CashierImp implements CashierServices {
 
     public CashierImp(Cashier cashier){
         this.cashier = cashier;
-
     }
 
     public CashierImp(){
@@ -20,22 +19,22 @@ public class CashierImp implements CashierServices {
 
 
     @Override
-    public void sell() {
+    public void sell(Customer customer) {
         if(cashier.isHired()) {
             System.out.println("The following item in your store are been bought.");
         }else System.out.println("You are no longer a staff here. And cannot sell");
     }
 
     @Override
-    public boolean dispenseReceipt() {
+    public boolean dispenseReceipt(Customer customer) {
         if(cashier.isHired()) {
             int sum = 0;
             System.out.println("****************************************************************");
             System.out.println("Purchase receipt");
             System.out.println("Products                  Price(₦\u200E)              Quantity");
-            for (Map.Entry<String, Integer> items : new Customer().getCart().entrySet()) {
-                System.out.println(items.getKey() + "         :             " + items.getValue() + "        :         " + new Customer().getCartQuantity().get(items.getKey()));
-                sum += items.getValue() * (new Customer().getCartQuantity().get(items.getKey()));
+            for (Map.Entry<String, Integer> items : customer.getCart().entrySet()) {
+                System.out.println(items.getKey() + "         :             " + items.getValue() + "        :         " + customer.getCartQuantity().get(items.getKey()));
+                sum += items.getValue() * (customer.getCartQuantity().get(items.getKey()));
             }
             System.out.println("Total price: " + sum + "\nThank you for patronizing us, have a great day!");
             System.out.println();

@@ -1,19 +1,29 @@
 package com.store.implementations;
 
 import com.store.models.Cashier;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class CustomerTest {
+    ManagerImp manager;
+    Cashier cashier;
+    CashierImp cashierImp;
+    Customer customer1;
+    Customer customer2;
+    @BeforeEach
+    public void runBeforeAnyOtherTest(){
+        manager = new ManagerImp();
+        cashier = new Cashier("Jane", "Mary",
+                25, "D0002B02", "jamemary@gmail.com",
+                "Ohen", "Stand 1");
+        cashierImp = new CashierImp(cashier);
+        customer1 = new Customer();
+        customer2 = new Customer();
+    }
     // Creating the necessary instances
-    ManagerImp manager = new ManagerImp();
-    Cashier cashier = new Cashier("Jane", "Mary",
-            25, "D0002B02", "jamemary@gmail.com",
-            "Ohen", "Stand 1");
-    CashierImp cashierImp = new CashierImp(cashier);
-    Customer customer1 = new Customer();
-    Customer customer2 = new Customer();
+
 
     @Test
     void addToCart() {

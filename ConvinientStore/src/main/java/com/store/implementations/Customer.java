@@ -8,8 +8,8 @@ public class Customer {
     public Customer(){
 
     }
-    private static Map<String, Integer> cart = new HashMap<>();
-    private static Map<String, Integer> cartQuantity = new HashMap<>();
+    private Map<String, Integer> cart = new HashMap<>();
+    private Map<String, Integer> cartQuantity = new HashMap<>();
 
     public Map<String, Integer> getCart() {
         return cart;
